@@ -5,7 +5,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { shades } from "../theme";
 import { addToCart } from "../state";
-import useNavigate from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Item = ({ item, width }) => {
   const navigate = useNavigate();
@@ -17,13 +17,10 @@ const Item = ({ item, width }) => {
   } = useTheme();
 
   const { category, price, name, image } = item.attributes;
+
   const {
     data: {
-      attributes: {
-        formats: {
-          medium: { url },
-        },
-      },
+      attributes: { url },
     },
   } = image;
 
@@ -43,7 +40,7 @@ const Item = ({ item, width }) => {
           style={{ cursor: "pointer" }}
         />
         <Box
-          display={isHovered ? "blocked" : "none"}
+          display={isHovered ? "block" : "none"}
           position="absolute"
           bottom="10%"
           left="0"
@@ -85,7 +82,7 @@ const Item = ({ item, width }) => {
       <Box mt="3px">
         <Typography variant="subtitle2" color={neutral.dark}>
           {category
-            .replace(/([A-Z])/g, " $1")
+            ?.replace(/([A-Z])/g, " $1")
             .replace(/^./, (str) => str.toUpperCase())}
         </Typography>
         <Typography>{name}</Typography>
