@@ -52,7 +52,7 @@ const CartMenu = () => {
         <Box padding="30px" overflow="auto" height="100%">
           {/*  HEADER  */}
           <FlexBox mb="15px">
-            <Typography variant="h3">SHOPPPING BAG ({cart.length})</Typography>
+            <Typography variant="h3">SHOPPING BAG ({cart.length})</Typography>
             <IconButton onClick={() => dispatch(setIsCartOpen())}>
               <CloseIcon />
             </IconButton>
@@ -68,7 +68,7 @@ const CartMenu = () => {
                       alt={item?.name}
                       width="123px"
                       height="164px"
-                      scr={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+                      src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.url}`}
                     />
                   </Box>
                   {/*  ITEM NAME  */}
@@ -134,7 +134,7 @@ const CartMenu = () => {
             </FlexBox>
             <Button
               sx={{
-                background: shades.primary[400],
+                backgroundColor: shades.primary[400],
                 color: "white",
                 borderRadius: 0,
                 minWidth: "100%",
